@@ -1,0 +1,15 @@
+---
+title: "About me"
+description: |
+  Hi, I’m Nguyen Truong Thinh, but you can call me Theo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+I am curious about inequalities and the digital divide in the context of rapid digital transformation in Vietnam and ASEAN countries. 
+
+Email truongthinh.nguyen03@gmail.com
+
+LinkedIn Thinh (Theo) Nguyen Truong

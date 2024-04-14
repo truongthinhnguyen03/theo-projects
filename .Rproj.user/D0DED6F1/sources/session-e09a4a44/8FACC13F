@@ -1,0 +1,32 @@
+{
+    "id": "8FACC13F",
+    "path": "C:/Users/ThinhNT/Desktop/theo-projects/_posts/2023-11-08-vietnam-household-living-standards-survey-data-cleaning-with-r/vietnam-household-living-standards-survey-data-cleaning-with-r.Rmd",
+    "project_path": "_posts/2023-11-08-vietnam-household-living-standards-survey-data-cleaning-with-r/vietnam-household-living-standards-survey-data-cleaning-with-r.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1712990056638.0,
+    "source_on_save": true,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "21",
+        "last_setup_crc32": "e09a4a44bb338d19",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "307:0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1713110406,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1713110406148,
+    "read_only": false,
+    "read_only_alternatives": []
+}
