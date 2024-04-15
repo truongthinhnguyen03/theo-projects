@@ -1,0 +1,107 @@
+---
+title: "Choropleth map of Vietnam's Household Income, 2020"
+author: Nguyen Truong Thinh
+date: 2024-04-13
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=TRUE, fig.height=6, layout="l-page"}
+library(ggplot2)
+library(sf)
+library(dplyr)
+library(haven)
+library(stringi)
+library(stringr)
+library(rmarkdown)
+```
+
+```{r}
+ho3 <- read_dta("HO3.dta")
+head(ho3) %>% 
+  paged_table()
+```
+
+```{r echo=FALSE}
+# Function extracts variable description: 
+
+extract_description <- function(df_selected) {
+  
+  sapply(df_selected, function(x) {attributes(x) %>% .$label}) %>% 
+    data.frame() %>% 
+    mutate(description = stri_trans_general(`.`, "Latin-ASCII")) -> df_des
+  
+  df_des %>% 
+    mutate(var_name = row.names(df_des)) %>% 
+    select(var_name, description) -> df_des
+  
+  row.names(df_des) <- NULL
+  
+  return(df_des)
+  
+}
+
+# Description for data: 
+extract_description(ho3) %>% 
+  paged_table()
+```
+
+```{r}
+ho3 %>% 
+  group_by(tinh) %>% 
+  summarise(qt25 = quantile(thunhap, 0.25), 
+            qt50 = quantile(thunhap, 0.50), 
+            qt75 = quantile(thunhap, 0.75)) -> aggr_household_income
+```
+
+```{r}
+aggr_household_income <- aggr_household_income %>%
+  mutate(ISO3166_2_CODE = paste("VN-", aggr_household_income$tinh, sep = ""))
+
+paged_table(aggr_household_income)
+```
+
+```{r}
+vietnam <- read_sf("vietnam.json")
+```
+
+```{r fig.height=6, layout="l-page"}
+ggplot(vietnam) +
+  geom_sf(fill = "white", color = "black", linewidth = 0.3) +
+  theme_void()
+```
+
+```{r}
+vietnam_merged <- vietnam %>% 
+  left_join(aggr_household_income, by="ISO3166_2_CODE")
+
+head(vietnam_merged)
+```
+
+```{r fig.height=6, layout="l-page", preview=TRUE}
+map <- ggplot(vietnam_merged) +
+  geom_sf(aes(fill = qt50,
+              text = paste("City:", Name_EN, "\n", "Avg. Household Income", qt50)),
+          colour = NA) +
+  labs(title = "Household Income in Vietnam, 2020",
+       subtitle = "Data: Vietnam Household Living Standard Survey",
+       fill = "millions VND") +
+  theme_void() +
+  theme(legend.position = "top",
+        legend.margin = margin(t = 12, r = 0, b = 0, l = 0, unit = "pt"),
+        legend.justification = c("left", "top")) +
+  guides(fill = guide_legend(nrow = 1)) +
+  theme(legend.key.height = unit(0.5, "cm")) + 
+  theme(legend.key.width = unit(1.2, "cm"))
+
+map
+```
+
+# Acknowledgements {.appendix}
+
+<https://r-graph-gallery.com/327-chloropleth-map-from-geojson-with-ggplot2.html>

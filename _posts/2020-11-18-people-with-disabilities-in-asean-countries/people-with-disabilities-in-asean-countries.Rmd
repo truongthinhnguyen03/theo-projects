@@ -4,6 +4,7 @@ description: |
   I gathered publicly available data on people with disabilities across ASEAN countries to reveal their economic barriers as well as potential.
 author: Nguyen Truong Thinh
 date: 2020-11-18
+preview: Screenshot 2024-04-15 163219.png
 output:
   distill::distill_article:
     self_contained: false
