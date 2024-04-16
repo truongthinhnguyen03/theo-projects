@@ -1,0 +1,24 @@
+---
+title: "Exploring Visualization Research"
+description: |
+  A short description of the post.
+author:
+  - name: Nguyen Truong Thinh
+    url: {}
+date: 2024-04-16
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{=html}
+<div class="l-page">
+<a target=_blank href="https://www.tldraw.com/s/v2_c_JSvmbJPzGGRe8IC4HHM3i?v=-42%2C0%2C1936%2C987&p=nMKPoYyXy_v7ahO_eenUg">
+  <img src="Screenshot 2024-04-16 175425.png" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"></img>
+</a>
+</div>
+```

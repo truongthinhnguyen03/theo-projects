@@ -1,0 +1,37 @@
+---
+title: "Experimenting with D3.js"
+description: |
+  A short description of the post.
+author:
+  - name: Nguyen Truong Thinh
+    url: {}
+date: 2024-04-15
+css: treemap.css
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+library(knitr)
+library(htmltools)
+```
+
+```{r echo=FALSE}
+knitr::asis_output(htmltools::htmlPreserve("
+<script src=\"https://d3js.org/d3.v4.min.js\"></script>
+<h1 id=\"title\">Title</h1>
+<div id=\"description\">Desc</div>
+<svg id=\"tree-map\" width=\"960\" height=\"570\"></svg>
+<svg id=\"legend\" width=\"500\"></svg>
+<script src=\"treemap.js\"></script>
+"))
+```
+
+```{r include=FALSE}
+r2d3::r2d3(script="treemap.js", css="treemap.css")
+```
