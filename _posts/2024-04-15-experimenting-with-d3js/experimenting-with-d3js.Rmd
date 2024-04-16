@@ -4,12 +4,12 @@ description: |
   A short description of the post.
 author:
   - name: Nguyen Truong Thinh
-    url: {}
 date: 2024-04-15
 css: treemap.css
 output:
   distill::distill_article:
     self_contained: false
+draft: true
 ---
 
 ```{r setup, include=FALSE}
